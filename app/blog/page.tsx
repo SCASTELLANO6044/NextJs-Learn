@@ -13,3 +13,4 @@ export default async function Blog() {
   })
   return <h1>My blog</h1>;
 }
+
