@@ -1,12 +1,25 @@
 import { type NextRequest } from "next/server"
-import { headers } from "next/headers";
+import { headers,cookies } from "next/headers";
 
 export async function GET(request: NextRequest) {
+    const requestHeaders = new Headers(request.headers);
+    console.log(requestHeaders.get("Authorization"));
     
     const heardsList = await headers();
     console.log(heardsList.get("Authorization"));
-    return new Response(JSON.stringify("Response"), {
-        headers: {"Content-Type": "application/json"},
+
+    const theme = request.cookies.get("theme");
+    console.log(theme)
+
+    const cookieStore = await cookies();
+    cookieStore.set("resultsPerPage", "20");
+    console.log(cookieStore.get("resultsPerPage"))
+
+    return new Response("<h1>Profile API data</h1>", {
+        headers: {
+            "Content-Type": "text/html",
+            "Set-Cookie": "theme=dark"
+        },
         status: 200,
     });
 }
