@@ -2,6 +2,7 @@
 //   return Math.floor(Math.random() * count);
 // }
 
+
 export default function ProductDetailsLayout(
 {
   children,
