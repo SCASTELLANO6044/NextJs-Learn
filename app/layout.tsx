@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { ErrorWrapper } from "./error-wrapper";
+import { ThemeProvider } from "./comments/theme-provider";
 
 export const metadata: Metadata = {
   title: {
@@ -17,23 +18,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header
-          style={{
-            backgroundColor: "lightblue",
-            padding: "1rem",
-          }}
-        >
-          <p>Header</p>
-        </header>
-        <ErrorWrapper>{children}</ErrorWrapper>
-        <footer
-          style={{
-            backgroundColor: "ghostwhite",
-            padding: "1rem",
-          }}
-        >
-          <p>Footer</p>
-        </footer>
+        <ThemeProvider>
+          <header
+            style={{
+              backgroundColor: "lightblue",
+              padding: "1rem",
+            }}
+          >
+            <p>Header</p>
+          </header>
+          <ErrorWrapper>{children}</ErrorWrapper>
+          <footer
+            style={{
+              backgroundColor: "ghostwhite",
+              padding: "1rem",
+            }}
+          >
+            <p>Footer</p>
+          </footer>
+        </ThemeProvider> 
       </body>
     </html>
   );
