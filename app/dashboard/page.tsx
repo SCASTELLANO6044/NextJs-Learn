@@ -2,11 +2,11 @@
 
 import { useState } from "react"
 
-export default function DashboardPage(){
+export default function DashboardPage() {
     console.log("Dashboard client  component");
     const [name, setName] = useState("");
 
-    return(
+    return (
         <div>
             <h1>Dashboard</h1>
             <input value={name} onChange={(e) => setName(e.target.value)} />
