@@ -1,6 +1,5 @@
 "use client";
 
-
 import { FormState, createProduct } from "@/actions/products";
 import { Submit } from "@/app/components/submit";
 import { useActionState } from "react";
